@@ -637,18 +637,7 @@
   </main>
 
   <script>
-    /*
-      ── Event delegation for social icon quick-links ───────────────────
-      SECURITY FIX: Replaced all inline onclick="redirectTo(...)" handlers
-      with a single delegated listener on the parent nav element.
-      Inline event handlers are a common XSS surface and are also harder
-      to audit/maintain.
-
-      Each icon carries a data-url attribute. We validate the URL
-      against a strict allowlist before opening it, so even if an
-      attribute is tampered with via browser dev tools, only
-      pre-approved domains can be navigated to.
-    */
+  
 
     /** Domains we're willing to open (allowlist). */
     const ALLOWED_DOMAINS = [
@@ -704,13 +693,6 @@
       }
     });
 
-    /*
-      NOTE: The main .link-button anchors use real href values and
-      rel="noopener noreferrer" directly in the HTML — no JS needed.
-      This is the most robust approach: it works even with JS disabled,
-      and browsers natively enforce noopener on target="_blank" links
-      that carry the rel attribute.
-    */
   </script>
 
 </body>
