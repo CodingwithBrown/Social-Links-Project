@@ -6,56 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DowntownBrown — Find Me Here</title>
 
-  <!--
-    ============================================================
-    SECURITY NOTES (what was fixed):
-    1. Removed inline onclick="redirectTo(...)" handlers — replaced
-       with data-* attributes + a single delegated event listener.
-       Inline handlers are an XSS vector if any content is ever
-       injected into the page.
-    2. All <a> tags now use the real href directly instead of href="#",
-       which prevented right-click → "open in new tab" and was
-       semantically wrong.
-    3. Added rel="noopener noreferrer" to every external link.
-       Without "noopener", the opened tab can access window.opener
-       and redirect the parent page (reverse tabnapping attack).
-    4. Fixed broken HTML: <h1> was closed with </h2>, which is
-       invalid and can confuse parsers / screen readers.
-    5. Social links are public URLs and not secret — no change needed
-       there — but they are now only written in one place (the JS
-       config object) rather than duplicated, reducing maintenance risk.
-    ============================================================
-
-    MOBILE RESPONSIVE NOTES (what was added):
-    - Full mobile-first responsive CSS replacing the previous single
-      two-line media query.
-    - Four breakpoint tiers: ≤360px (tiny phones), ≤480px (standard
-      phones), ≤600px (large phones / landscape), ≤500px height
-      landscape (handles rotated phones where the viewport is short).
-    - text-overflow: ellipsis on buttons and tagline prevents text
-      from bleeding off-screen on narrow widths.
-    - word-break: break-word on the page title prevents overflow.
-    - hover: none media query disables the translateY lift on touch
-      devices so buttons do not get stuck in a raised state after tap.
-    - touch-action: manipulation removes the 300ms tap delay on mobile.
-    - Landscape mode collapses vertical spacing so all content fits
-      without scrolling on rotated phones.
-    ============================================================
-
-    DESIGN NOTES (what changed):
-    - Imported a distinctive display font (Bebas Neue) for the title
-      and a clean mono-ish font (DM Mono) for buttons.
-    - Added an animated grain overlay for texture depth.
-    - Added a slow-rotating radial "spotlight" gradient behind content.
-    - Social icon row now has a glowing pill background.
-    - Buttons redesigned: left-aligned icon + label, thin top border
-      accent on hover, colour-coded per platform.
-    - Staggered CSS entrance animations (fade + slide up).
-    - Subtle scanline overlay for a slightly retro-futuristic feel.
-    - All original brand colours (#1a1a2e → #0f3460) are preserved.
-    ============================================================
-  -->
-
   <!-- Fonts: Bebas Neue (display) + DM Mono (body/buttons) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
